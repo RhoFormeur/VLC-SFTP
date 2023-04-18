@@ -1,0 +1,8 @@
+<div class="d-flex">
+    <p class="me-2">[FILE]</p>
+    {{#if this.parent}}
+    <a href="/linux/{{this.parent}}/{{this.name}}">{{this.name}}</a>
+    {{else}}
+    <a href="/linux/{{this.name}}">{{this.name}}</a>
+    {{/if}}
+</div>

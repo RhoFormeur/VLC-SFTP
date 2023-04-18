@@ -1,0 +1,8 @@
+<div class="d-flex">
+    <p class="me-2">[DIR]</p>
+    {{#if this.parent}}
+    <a href="{{this.parent}}/{{this.name}}">{{this.name}}</a>
+    {{else}}
+    <a href="{{this.name}}">{{this.name}}</a>
+    {{/if}}
+</div>
