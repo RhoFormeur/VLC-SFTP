@@ -71,6 +71,7 @@ app.get("/linux/:file", (req, res) => {
     const fileReplace = file
       .replace(/[(]/g, "%28")
       .replace(/[)]/g, "%29")
+      .replace(/'/g,"%27")
       .replace(/ /g, "%20");
   
     // Utilisation de la fonction "exec" du module "child_process" de Node.js pour exécuter la commande
@@ -88,7 +89,7 @@ app.get("/linux/:file", (req, res) => {
         console.error(`Erreur de la commande : ${stderr}`);
       }
     );
-    res.send("Lecture en cours sur VLC!");
+    res.redirect('back')
   });
   
   app.get("/linux/:parent/:file", (req, res) => {
@@ -98,10 +99,12 @@ app.get("/linux/:file", (req, res) => {
     const fileReplace = file
       .replace(/[(]/g, "%28")
       .replace(/[)]/g, "%29")
+      .replace(/'/g,"%27")
       .replace(/ /g, "%20");
     const parentReplace = parent
       .replace(/[(]/g, "%28")
       .replace(/[)]/g, "%29")
+      .replace(/'/g,"%27")
       .replace(/ /g, "%20");
   
     // Utilisation de la fonction "exec" du module "child_process" de Node.js pour exécuter la commande
@@ -119,7 +122,7 @@ app.get("/linux/:file", (req, res) => {
         console.error(`Erreur de la commande : ${stderr}`);
       }
     );
-    res.send("Lecture en cours sur VLC!");
+    res.redirect('back')
   });
   
   app.get("/linux/:parent/:dir/:file", (req, res) => {
@@ -130,14 +133,17 @@ app.get("/linux/:file", (req, res) => {
     const fileReplace = file
       .replace(/[(]/g, "%28")
       .replace(/[)]/g, "%29")
+      .replace(/'/g,"%27")
       .replace(/ /g, "%20");
     const parentReplace = parent
       .replace(/[(]/g, "%28")
       .replace(/[)]/g, "%29")
+      .replace(/'/g,"%27")
       .replace(/ /g, "%20");
     const dirReplace = dir
       .replace(/[(]/g, "%28")
       .replace(/[)]/g, "%29")
+      .replace(/'/g,"%27")
       .replace(/ /g, "%20");
     // Utilisation de la fonction "exec" du module "child_process" de Node.js pour exécuter la commande
     const { exec } = require("child_process");
@@ -154,7 +160,7 @@ app.get("/linux/:file", (req, res) => {
         console.error(`Erreur de la commande : ${stderr}`);
       }
     );
-    res.send("Lecture en cours sur VLC!");
+    res.redirect('back')
   });
 
 app.get("/:dir", (req, res) => {
